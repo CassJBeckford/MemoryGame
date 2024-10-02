@@ -1,5 +1,5 @@
 
-const { game, newGame, showScore, addTurn, LightsOn } = require("../game");
+const { game, newGame, showScore, addTurn, LightsOn, showTurns } = require("../game");
 
 
 beforeAll(() => {
@@ -68,4 +68,9 @@ describe("gameplay works correctly", () => {
         LightsOn(game.currentGame[0]);
         expect(button.classList).toContain("light");
     });
+    test("showTurns should update game.turnNumber", () => {
+        game.turnNumber = 42;
+        showTurns();
+        expect(game.turnNumber).toBe(0);
+    })
 });
