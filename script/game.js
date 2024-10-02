@@ -9,6 +9,17 @@ function newGame() {
     game.score = 0;
     game.playerMoves.length = [];
     game.currentGame.length = [];
+    for (let circle of document.getElementsByClassName("circle")) {
+        if (circle.getAttribute("data-listener") !== "true"){
+            circle.addEventListener("click", (e) => {
+                let move = e.target.getAttribute("id");
+                LightsOn(move);
+                game.playerMoves.push(move);
+                playerTurn();
+            });
+            circle.setAttribute("data-listener", "true");
+        }
+    }
     showScore();
     addTurn();
 };

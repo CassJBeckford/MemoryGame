@@ -45,7 +45,13 @@ describe("newGame works correctly", () => {
     test("id = 'score' should display 0", () => {
         expect(document.getElementById('score').innerText).toBe(0);
     });
-})
+    test("expect data-listener to be true", () => {
+        const elements = document.getElementsByClassName("circle");
+        for (let element of elements) {
+            expect(element.getAttribute("data-listener")).toEqual("true");
+        }
+    });
+});
 
 describe("gameplay works correctly", () => {
     beforeEach(() => {
